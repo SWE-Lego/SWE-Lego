@@ -22,9 +22,12 @@
 
 </div>
 
-We introduce DeepSWE-Preview, a reasoning-enabled coding agent trained from scratch from Qwen3-32B with only reinforcement learning (RL). It achieves 59.2% on SWE-Bench-Verified with test-time scaling, reaching SOTA for open-weight coding agents (42.2% Pass@1, 71.0% Pass@16).
+We present **SWE-Lego**, a supervised fine-tuning (SFT) recipe designed to achieve state-of-the-art performance in software engineering (SWE) issue resolving. SWE-Lego comprises three core building blocks:
+- the **SWE-Lego dataset**, a collection of _32k_ highquality task instances and _18k_ validated trajectories, combining real and synthetic data to complement each other in both quality and quantity;
+- a **refined SFT** procedure with error masking and a difficulty-based curriculum, which demonstrably improves action quality and overall performance;
+- a **well-trained verifier** for improving test-time scaling (TTS).
 
-DeepSWE is trained using [**rLLM**](https://github.com/rllm-org/rllm), our framework for post-training language agents using high-quality SWE environments from [**R2E-Gym**](https://github.com/R2E-Gym/R2E-Gym). 
+We present SWE-Lego-Qwen3-8B and SWE-Lego-Qwen3-32B, models fine-tuned exclusively with SFT from Qwen3-8B/32B for software engineering. Their effectiveness is demonstrated on SWE-Bench-Verified: the 8B variant achieves a Pass@1 of **42.2%** and TTS@16 of **49.6%**, and the 32B variant achieves a Pass@1 of **52.6%** and TTS@16 of **58.8%**.
 
 We’ve open-sourced everything—our dataset, code, and training scripts, for everyone to progress on scaling and improving software engineering agents.
 
