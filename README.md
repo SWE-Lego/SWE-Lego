@@ -4,26 +4,21 @@
 <p align="center">
 <a href="https://pretty-radio-b75.notion.site/DeepSWE-Training-a-Fully-Open-sourced-State-of-the-Art[…]-by-Scaling-RL-22281902c1468193aabbe9a8c59bbe33?pvs=73">📃 Blog Post</a>
 •
-<a href="https://huggingface.co/datasets/R2E-Gym/R2E-Gym-Subset" > 🤗 HF Dataset (R2E-Gym) </a>
+<a href="https://huggingface.co/SWE-Lego" > 🤗 HF Dataset </a>
 •
-<!-- project page -->
-<a href="https://wandb.ai/mluo/deepswe" >🔥 WandB Logs</a>
+<a href="https://huggingface.co/SWE-Lego" > 🤗 SWE-Lego-Qwen3-8B/32B</a>
+<!-- •
+<a href="https://agentica-project.com/" > 🌐 Project Page</a> -->
 •
-<a href="https://huggingface.co/agentica-org/DeepSWE-Preview" > 🤗 DeepSWE-Preview</a>
-•
-<a href="https://drive.google.com/file/d/10LIwpJeaFuiX6Y-qEG2a4a335PEuQJeS/view?usp=sharing" > 📈 Evaluation Logs</a>
-•
-<a href="https://agentica-project.com/" > 🌐 Project Page</a>
-•
-<a href="https://github.com/rllm-org/rllm" > 🧑‍💻 Code</a>
+<a href="https://github.com/SWE-Lego/SWE-Lego" > 🧑‍💻 Code</a>
 </p>
 
 <div align="center">
 
-[![Github](https://img.shields.io/badge/RLLM-000000?style=for-the-badge&logo=github&logoColor=000&logoColor=white)](https://github.com/rllm-org/rllm)
-[![Website](https://img.shields.io/badge/Site-%23000000.svg?style=for-the-badge&logo=semanticweb&logoColor=white)](https://www.agentica-project.com) 
-[![Twitter](https://img.shields.io/badge/Agentica-white?style=for-the-badge&logo=X&logoColor=000&color=000&labelColor=white)](https://x.com/Agentica_)
-[![Hugging Face Collection](https://img.shields.io/badge/Agentica-fcd022?style=for-the-badge&logo=huggingface&logoColor=000&labelColor)](https://huggingface.co/agentica-org)
+[![Github](https://img.shields.io/badge/SWE_Lego-000000?style=for-the-badge&logo=github&logoColor=000&logoColor=white)](https://github.com/SWE-Lego/SWE-Lego)
+[![Hugging Face Collection](https://img.shields.io/badge/SWE_Lego-fcd022?style=for-the-badge&logo=huggingface&logoColor=000&labelColor)](https://huggingface.co/SWE-Lego)
+<!-- [![Website](https://img.shields.io/badge/Site-%23000000.svg?style=for-the-badge&logo=semanticweb&logoColor=white)](https://www.agentica-project.com) 
+[![Twitter](https://img.shields.io/badge/Agentica-white?style=for-the-badge&logo=X&logoColor=000&color=000&labelColor=white)](https://x.com/Agentica_) -->
 
 </div>
 
