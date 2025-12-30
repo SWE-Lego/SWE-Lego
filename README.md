@@ -80,7 +80,7 @@ pip install flash_attn-2.8.3+cu12torch2.8cxx11abiFALSE-cp312-cp312-linux_x86_64.
 pip install wandb
 ```
 
-### 🤖 2. Running SWE-Lego-Qwen3-8B/32B Inference and Evaluation
+### 🤖 2.  Inference and Evaluation of SWE-Lego-Qwen3-8B/32B
 
 We take the SWE-Lego-Qwen3-32B for an example.
 
@@ -99,7 +99,7 @@ bash scripts/swe_lego_qwen3_32b/infer.sh
 bash scripts/swe_lego_qwen3_32b/eval.sh
 ```
 
-### 🔥 3. Training SWE-Lego-Qwen3-8B/32B
+### 🔥 3. Training of SWE-Lego-Qwen3-8B/32B
 
 #### 3.1 Downloading trajectories for SFT from Hugging Face
 ```bash
