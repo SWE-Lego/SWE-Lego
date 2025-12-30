@@ -22,6 +22,12 @@
 
 </div>
 
+<p align="center">
+    <br>
+    <img src="assets/overview.png" width="600"/>
+    <br>
+</p>
+
 We present **SWE-Lego**, a supervised fine-tuning (SFT) recipe designed to achieve state-of-the-art performance in software engineering (SWE) issue resolving. SWE-Lego comprises three core building blocks:
 - the **SWE-Lego dataset**, a collection of _32k_ highquality task instances and _18k_ validated trajectories, combining real and synthetic data to complement each other in both quality and quantity;
 - a **refined SFT** procedure with error masking and a difficulty-based curriculum, which demonstrably improves action quality and overall performance;
