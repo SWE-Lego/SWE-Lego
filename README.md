@@ -27,7 +27,7 @@ We present **SWE-Lego**, a supervised fine-tuning (SFT) recipe designed to achie
 - a **refined SFT** procedure with error masking and a difficulty-based curriculum, which demonstrably improves action quality and overall performance;
 - a **well-trained verifier** for improving test-time scaling (TTS).
 
-We present SWE-Lego-Qwen3-8B and SWE-Lego-Qwen3-32B, models fine-tuned exclusively with SFT from Qwen3-8B/32B for software engineering. Their effectiveness is demonstrated on SWE-Bench-Verified: the 8B variant achieves a Pass@1 of **42.2%** and TTS@16 of **49.6%**, and the 32B variant achieves a Pass@1 of **52.6%** and TTS@16 of **58.8%**.
+Our fine-tuned models, SWE-Lego-Qwen3-8B and SWE-Lego-Qwen3-32B, are trained exclusively with SFT from Qwen3-8B/32B. Their effectiveness is demonstrated on SWE-Bench-Verified: the 8B variant achieves a Pass@1 of **42.2%** and TTS@16 of **49.6%**, and the 32B variant achieves a Pass@1 of **52.6%** and TTS@16 of **58.8%**.
 
 We’ve open-sourced everything—our dataset, code, and training scripts, for everyone to progress on scaling and improving software engineering agents.
 
