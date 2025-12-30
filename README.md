@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h1 align="center"> SWE-Lego: Pushing the Limits of Supervised Fine-tuning for Software Issue Resolving </h1>
 
 <!-- paper . data and models . project page -->
@@ -130,6 +129,3 @@ Please cite our paper if you find the repo helpful in your work:
   year={2025}
 }
 ```
-=======
-# SWE-Lego-V1
->>>>>>> 147280ca064c4393f60332be8f2ef34141bf0edc
