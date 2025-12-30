@@ -97,7 +97,7 @@ bash scripts/swe_lego_qwen3_32b/infer.sh
 bash scripts/swe_lego_qwen3_32b/eval.sh
 ```
 
-### 🔥 3. Training SWE-Lego-Qwen3-8B/32B with Llamafactory
+### 🔥 3. Training SWE-Lego-Qwen3-8B/32B
 
 #### 3.1 Downloading trajectories for SFT from Hugging Face
 ```bash
