@@ -32,7 +32,7 @@ DeepSWE is trained using [**rLLM**](https://github.com/rllm-org/rllm), our frame
 ### 1. 📦 Installation
 
 ```bash
-git clone https://github.com/SWE-Lego/SWE-Lego-V1.git
+git clone https://github.com/SWE-Lego/SWE-Lego.git
 ```
 
 #### 1.1 Installing vllm environment
