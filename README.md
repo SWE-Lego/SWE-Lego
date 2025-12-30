@@ -40,14 +40,14 @@ DeepSWE is trained using [**rLLM**](https://github.com/rllm-org/rllm), our frame
 git clone https://github.com/SWE-Lego/SWE-Lego-V1.git
 ```
 
-#### 1.1 Installing vllm environment.
+#### 1.1 Installing vllm environment
 ```bash
 conda create -n vllm python=3.12 -y
 conda activate vllm
 pip install vllm
 ```
 
-#### 1.2 Installing openhands environment.
+#### 1.2 Installing openhands environment
 ```bash
 cd SWE-Lego-V1/OpenHands-0.53.0
 conda create -n openhands python=3.12 -y
@@ -59,7 +59,7 @@ poetry run pip install datasets
 make build
 ```
 
-#### 1.3 Installing swebench environment.
+#### 1.3 Installing swebench environment
 ```bash
 cd SWE-Lego-V1/SWE-bench-4.0.4
 conda create -n swebench python=3.12 -y
@@ -67,7 +67,7 @@ conda activate swebench
 pip install -e .
 ```
 
-#### 1.4 Installing llamafactory environment.
+#### 1.4 Installing llamafactory environment
 ```bash
 cd SWE-Lego-V1/LLaMA-Factory-0.9.4.dev0
 conda create -n lf python=3.12 -y
@@ -87,24 +87,24 @@ pip install wandb
 
 We take the SWE-Lego-Qwen3-32B for an example.
 
-#### 2.1 Serving the model via vllm.
+#### 2.1 Serving the model via vllm
 ```bash
 bash scripts/swe_lego_qwen3_32b/serve_vllm.sh
 ```
 
-#### 2.2 Running inference via openhands.
+#### 2.2 Running inference via openhands
 ```bash
 bash scripts/swe_lego_qwen3_32b/infer.sh
 ```
 
-#### 2.3 Running evaluation via swebench.
+#### 2.3 Running evaluation via swebench
 ```bash
 bash scripts/swe_lego_qwen3_32b/eval.sh
 ```
 
 ### 🔥 3. Training SWE-Lego-Qwen3-8B/32B with Llamafactory
 
-#### 3.1 Downloading trajectories for SFT from Hugging Face.
+#### 3.1 Downloading trajectories for SFT from Hugging Face
 ```bash
 cd LLaMA-Factory-0.9.4.dev0/data
 wget https://huggingface.co/datasets/SWE-Lego/SWE-Lego-Real-Data-Sample2k/blob/main/data/swe_lego_real_trajectories_sample2k.json
@@ -112,7 +112,7 @@ wget https://huggingface.co/datasets/SWE-Lego/SWE-Lego-Real-Data-Sample2k/blob/m
 wget https://huggingface.co/datasets/SWE-Lego/SWE-Lego-Synthetic-Data-Sample2k/blob/main/data/swe_lego_synthetic_trajectories_sample2k.json
 ```
 
-#### 3.2 Running SFT via llamafactory.
+#### 3.2 Running SFT via llamafactory
 ```bash
 bash scripts/swe_lego_qwen3_8b/sft.sh
 bash scripts/swe_lego_qwen3_32b/sft.sh
