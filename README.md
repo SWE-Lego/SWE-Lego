@@ -103,7 +103,6 @@ bash scripts/swe_lego_qwen3_32b/eval.sh
 ```bash
 cd LLaMA-Factory-0.9.4.dev0/data
 wget https://huggingface.co/datasets/SWE-Lego/SWE-Lego-Real-Data-Sample2k/blob/main/data/swe_lego_real_trajectories_sample2k.json
-
 wget https://huggingface.co/datasets/SWE-Lego/SWE-Lego-Synthetic-Data-Sample2k/blob/main/data/swe_lego_synthetic_trajectories_sample2k.json
 ```
 
