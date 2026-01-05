@@ -2,13 +2,10 @@
 
 <!-- paper . data and models . project page -->
 <p align="center">
-<a href="https://pretty-radio-b75.notion.site/DeepSWE-Training-a-Fully-Open-sourced-State-of-the-Art[…]-by-Scaling-RL-22281902c1468193aabbe9a8c59bbe33?pvs=73">📃 Blog Post</a>
-•
+
 <a href="https://huggingface.co/SWE-Lego" > 🤗 HF Dataset </a>
 •
 <a href="https://huggingface.co/SWE-Lego" > 🤗 SWE-Lego-Qwen3-8B/32B</a>
-<!-- •
-<a href="https://agentica-project.com/" > 🌐 Project Page</a> -->
 •
 <a href="https://github.com/SWE-Lego/SWE-Lego" > 🧑‍💻 Code</a>
 </p>
