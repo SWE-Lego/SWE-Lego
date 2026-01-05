@@ -109,10 +109,30 @@ bash scripts/swe_lego_qwen3_32b/eval.sh
 ### 🔥 3. Training of SWE-Lego-Qwen3-8B/32B
 
 #### 3.1 Downloading trajectories for SFT from Hugging Face
-```bash
-cd LLaMA-Factory-0.9.4.dev0/data
-wget https://huggingface.co/datasets/SWE-Lego/SWE-Lego-Real-Data-Sample2k/blob/main/data/swe_lego_real_trajectories_sample2k.json
-wget https://huggingface.co/datasets/SWE-Lego/SWE-Lego-Synthetic-Data-Sample2k/blob/main/data/swe_lego_synthetic_trajectories_sample2k.json
+Save trajectories to `LLaMA-Factory-0.9.4.dev0/data`
+```python
+import json
+from datasets import load_dataset
+
+datasets = [
+    {
+        "name": "SWE-Lego/SWE-Lego-Real-Data",
+        "filename": "swe_lego_real_data_resolved_trajectories.json"
+    },
+    {
+        "name": "SWE-Lego/SWE-Lego-Synthetic-Data", 
+        "filename": "swe_lego_synthetic_data_resolved_trajectories.json"
+    }
+]
+
+for config in datasets:
+    ds = load_dataset(config["name"], split="resolved")
+    processed_ds = ds.select_columns(["instance_id", "messages"])
+    data_list = processed_ds.to_list()
+    
+    with open(config["filename"], "w", encoding="utf-8") as f:
+        json.dump(data_list, f, ensure_ascii=False, indent=4)
+    print(f"Saved {len(data_list)} records to {config['filename']}")
 ```
 
 #### 3.2 Running SFT via llamafactory
