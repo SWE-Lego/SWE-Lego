@@ -2,7 +2,6 @@
 
 <!-- paper . data and models . project page -->
 <p align="center">
-
 <a href="https://huggingface.co/SWE-Lego" > 🤗 HF Dataset </a>
 •
 <a href="https://huggingface.co/SWE-Lego" > 🤗 SWE-Lego-Qwen3-8B/32B</a>
