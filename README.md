@@ -109,7 +109,7 @@ bash scripts/swe_lego_qwen3_32b/eval.sh
 ### 🔥 3. Training of SWE-Lego-Qwen3-8B/32B
 
 #### 3.1 Downloading trajectories for SFT from Hugging Face
-Save trajectories to `LLaMA-Factory-0.9.4.dev0/data`
+Save downloaded trajectories to `LLaMA-Factory-0.9.4.dev0/data`
 ```python
 import json
 from datasets import load_dataset
