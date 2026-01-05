@@ -1,6 +1,6 @@
 {
-  "swe_lego_real_trajectories_sample2k": {
-    "file_name": "swe_lego_real_trajectories_sample2k.json",
+  "swe_lego_real_data_resolved_trajectories": {
+    "file_name": "swe_lego_real_data_resolved_trajectories.json",
     "formatting": "sharegpt",
     "columns": {
       "messages": "messages"
@@ -13,8 +13,8 @@
       "system_tag": "system"
     }
   },
-  "swe_lego_synthetic_trajectories_sample2k": {
-    "file_name": "swe_lego_synthetic_trajectories_sample2k.json",
+  "swe_lego_synthetic_data_resolved_trajectories": {
+    "file_name": "swe_lego_synthetic_data_resolved_trajectories.json",
     "formatting": "sharegpt",
     "columns": {
       "messages": "messages"
