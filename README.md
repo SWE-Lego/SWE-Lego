@@ -145,10 +145,13 @@ bash scripts/swe_lego_qwen3_32b/sft.sh
 ## Citation 📝
 Please cite our paper if you find the repo helpful in your work:
 ```bibtex
-@inproceedings{swelego2025,
-  title={SWE-Lego: Pushing the Limits of Supervised Fine-tuning for Software Issue Resolving},
-  author={Chaofan Tao and Jierun Chen and Yuxin Jiang and Kaiqi Kou and Shaowei Wang and Ruoyu Wang and Xiaohui Li and Sidi Yang and Yiming Du and Jianbo Dai and Zhiming Mao and Xinyu Wang and Lifeng Shang and Haoli Bai},
-  booktitle={Arxiv},
-  year={2025}
+@misc{tao2026swelegopushinglimitssupervised,
+      title={SWE-Lego: Pushing the Limits of Supervised Fine-tuning for Software Issue Resolving}, 
+      author={Chaofan Tao and Jierun Chen and Yuxin Jiang and Kaiqi Kou and Shaowei Wang and Ruoyu Wang and Xiaohui Li and Sidi Yang and Yiming Du and Jianbo Dai and Zhiming Mao and Xinyu Wang and Lifeng Shang and Haoli Bai},
+      year={2026},
+      eprint={2601.01426},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE},
+      url={https://arxiv.org/abs/2601.01426}, 
 }
 ```
