@@ -7,6 +7,8 @@
 <a href="https://huggingface.co/SWE-Lego" > 🤗 SWE-Lego-Qwen3-8B/32B</a>
 •
 <a href="https://github.com/SWE-Lego/SWE-Lego" > 🧑‍💻 Code</a>
+•
+<a href="https://arxiv.org/abs/2601.01426" > 📖 Paper</a>
 </p>
 
 <div align="center">
