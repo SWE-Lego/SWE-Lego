@@ -145,7 +145,7 @@ bash scripts/swe_lego_qwen3_32b/sft.sh
 ## Citation 📝
 Please cite our paper if you find the repo helpful in your work:
 ```bibtex
-@misc{tao2026swelegopushinglimitssupervised,
+@misc{swelego,
       title={SWE-Lego: Pushing the Limits of Supervised Fine-tuning for Software Issue Resolving}, 
       author={Chaofan Tao and Jierun Chen and Yuxin Jiang and Kaiqi Kou and Shaowei Wang and Ruoyu Wang and Xiaohui Li and Sidi Yang and Yiming Du and Jianbo Dai and Zhiming Mao and Xinyu Wang and Lifeng Shang and Haoli Bai},
       year={2026},
