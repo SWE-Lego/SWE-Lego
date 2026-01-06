@@ -9,7 +9,7 @@ finetuning_type: full
 deepspeed: examples/deepspeed/ds_z3_config.json  # choices: [ds_z0_config.json, ds_z2_config.json, ds_z3_config.json]
 
 ### dataset
-dataset: swe_lego_real_trajectories_sample2k,swe_lego_synthetic_trajectories_sample2k
+dataset: swe_lego_real_data_resolved_trajectories,swe_lego_synthetic_data_resolved_trajectories
 template: qwen3_nothink
 cutoff_len: 131072
 rope_scaling: yarn
