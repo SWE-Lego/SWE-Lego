@@ -56,7 +56,7 @@ pip install vllm
 
 #### 1.2 Installing openhands environment
 ```bash
-cd SWE-Lego-V1/OpenHands-0.53.0
+cd SWE-Lego/OpenHands-0.53.0
 conda create -n openhands python=3.12 -y
 conda activate openhands
 conda install -c conda-forge nodejs=24.4.1 
@@ -68,7 +68,7 @@ make build
 
 #### 1.3 Installing swebench environment
 ```bash
-cd SWE-Lego-V1/SWE-bench-4.0.4
+cd SWE-Lego/SWE-bench-4.0.4
 conda create -n swebench python=3.12 -y
 conda activate swebench
 pip install -e .
@@ -76,7 +76,7 @@ pip install -e .
 
 #### 1.4 Installing llamafactory environment
 ```bash
-cd SWE-Lego-V1/LLaMA-Factory-0.9.4.dev0
+cd SWE-Lego/LLaMA-Factory-0.9.4.dev0
 conda create -n lf python=3.12 -y
 conda activate lf
 
@@ -144,12 +144,13 @@ bash scripts/swe_lego_qwen3_8b/sft.sh
 bash scripts/swe_lego_qwen3_32b/sft.sh
 ```
 
-### Acknowledgements
+## Acknowledgements
 This project acknowledges the valuable contributions of the following open-source repositories:
 
 - **SWE-bench**: [https://github.com/princeton-nlp/SWE-bench](https://github.com/princeton-nlp/SWE-bench) - A benchmark for evaluating AI agents' software engineering capabilities, which informed the evaluation design of this project.
 - **OpenHands**: [https://github.com/All-Hands-AI/OpenHands](https://github.com/All-Hands-AI/OpenHands) - Provides core logic for AI agent interaction and runtime management, referenced in this project's execution modules.
 - **LLaMA Factory**: [https://github.com/hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) - Offers LLM fine-tuning and prompt processing utilities, used to enhance this project's language model interaction capabilities.
+
 
 ## Citation 📝
 Please cite our paper if you find the repo helpful in your work:
