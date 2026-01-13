@@ -144,6 +144,12 @@ bash scripts/swe_lego_qwen3_8b/sft.sh
 bash scripts/swe_lego_qwen3_32b/sft.sh
 ```
 
+### Acknowledgements
+This project acknowledges the valuable contributions of the following open-source repositories:
+
+- **SWE-bench**: [https://github.com/princeton-nlp/SWE-bench](https://github.com/princeton-nlp/SWE-bench) - A benchmark for evaluating AI agents' software engineering capabilities, which informed the evaluation design of this project.
+- **OpenHands**: [https://github.com/All-Hands-AI/OpenHands](https://github.com/All-Hands-AI/OpenHands) - Provides core logic for AI agent interaction and runtime management, referenced in this project's execution modules.
+- **LLaMA Factory**: [https://github.com/hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) - Offers LLM fine-tuning and prompt processing utilities, used to enhance this project's language model interaction capabilities.
 
 ## Citation 📝
 Please cite our paper if you find the repo helpful in your work:
