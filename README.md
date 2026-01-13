@@ -53,6 +53,7 @@ pip install vllm
 ```
 
 #### 1.2 Installing openhands environment
+You can refer to the [Development Guide](https://github.com/OpenHands/OpenHands/blob/main/Development.md) from [Openhands](https://github.com/All-Hands-AI/OpenHands).
 ```bash
 cd SWE-Lego/OpenHands-0.53.0
 conda create -n openhands python=3.12 -y
