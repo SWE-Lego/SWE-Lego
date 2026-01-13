@@ -15,6 +15,7 @@
 
 [![Github](https://img.shields.io/badge/SWE_Lego-000000?style=for-the-badge&logo=github&logoColor=000&logoColor=white)](https://github.com/SWE-Lego/SWE-Lego)
 [![Hugging Face Collection](https://img.shields.io/badge/SWE_Lego-fcd022?style=for-the-badge&logo=huggingface&logoColor=000&labelColor)](https://huggingface.co/SWE-Lego)
+[![机器之心](https://img.shields.io/badge/机器之心-报道-blue?style=for-the-badge&logo=wechat&logoColor=white)](https://mp.weixin.qq.com/s/OQK9RsOjfdM1pgSe75ubdw)
 <!-- [![Website](https://img.shields.io/badge/Site-%23000000.svg?style=for-the-badge&logo=semanticweb&logoColor=white)](https://www.agentica-project.com) 
 [![Twitter](https://img.shields.io/badge/Agentica-white?style=for-the-badge&logo=X&logoColor=000&color=000&labelColor=white)](https://x.com/Agentica_) -->
 
