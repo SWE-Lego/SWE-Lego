@@ -1,5 +1,5 @@
 [core]
-workspace_base="OpenHands-0.53.0"
+workspace_base="SWE-Lego/OpenHands-0.53.0"
 
 [llm.eval_qwen3_8b]
 model="openai/Qwen/Qwen3-8B"
