@@ -27,6 +27,20 @@
       "system_tag": "system"
     }
   },
+  "swe_lego_real_data_trajectories_verifier": {
+    "hf_hub_url": "SWE-Lego/swe_lego_real_data_trajectories_verifier",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant",
+      "system_tag": "system"
+    }
+  },
   "identity": {
     "file_name": "identity.json"
   },

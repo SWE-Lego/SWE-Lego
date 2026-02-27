@@ -143,6 +143,45 @@ bash scripts/swe_lego_qwen3_8b/sft.sh
 bash scripts/swe_lego_qwen3_32b/sft.sh
 ```
 
+#### 3.3 Verifier SFT configs
+The verifier training configs are:
+- `LLaMA-Factory-0.9.4.dev0/examples/train_full/swe_lego_verifier_qwen3_8b.yaml`
+- `LLaMA-Factory-0.9.4.dev0/examples/train_full/swe_lego_verifier_qwen3_30b_a3b.yaml`
+- Dataset name: `swe_lego_real_data_trajectories_verifier` (from `SWE-Lego/swe_lego_real_data_trajectories_verifier`)
+
+Training launch scripts:
+- `scripts/swe_lego_verifier_qwen3_8b/sft.sh`
+- `scripts/swe_lego_verifier_qwen3_30b_a3b/sft.sh`
+
+Run from repo root:
+```bash
+bash scripts/swe_lego_verifier_qwen3_8b/sft.sh
+bash scripts/swe_lego_verifier_qwen3_30b_a3b/sft.sh
+```
+
+### 🧪 4. Verifier Inference
+
+#### 4.1 Convert trajectories to verifier format
+
+For verifier inference format, follow the HF training set schema (`SWE-Lego/swe_lego_real_data_trajectories_verifier`) to build data as `trajectory + patch + judge prompt`.
+You can convert raw trajectories with:
+
+```bash
+python LLaMA-Factory-0.9.4.dev0/tts/convert_trajectories_to_verifier.py \
+  --input /path/to/raw_trajectories.jsonl \
+  --output /path/to/verifier_input.jsonl
+```
+
+Inference launch scripts:
+- `scripts/swe_lego_verifier_qwen3_8b/infer.sh`
+- `scripts/swe_lego_verifier_qwen3_30b_a3b/infer.sh`
+
+Example:
+```bash
+bash scripts/swe_lego_verifier_qwen3_8b/infer.sh /path/to/verifier_input.jsonl
+bash scripts/swe_lego_verifier_qwen3_30b_a3b/infer.sh /path/to/verifier_input.jsonl
+```
+
 ## Acknowledgements
 This project acknowledges the valuable contributions of the following open-source repositories:
 
