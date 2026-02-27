@@ -147,7 +147,7 @@ bash scripts/swe_lego_qwen3_32b/sft.sh
 The verifier training configs are:
 - `LLaMA-Factory-0.9.4.dev0/examples/train_full/swe_lego_verifier_qwen3_8b.yaml`
 - `LLaMA-Factory-0.9.4.dev0/examples/train_full/swe_lego_verifier_qwen3_30b_a3b.yaml`
-- Dataset name: `swe_lego_real_data_trajectories_verifier` (from `SWE-Lego/swe_lego_real_data_trajectories_verifier`)
+- Dataset name: `swe_lego_real_data_trajectories_verifier` (from `SWE-Lego/SWE_Lego_real_data_Verifier`)
 
 Training launch scripts:
 - `scripts/swe_lego_verifier_qwen3_8b/sft.sh`
@@ -163,7 +163,7 @@ bash scripts/swe_lego_verifier_qwen3_30b_a3b/sft.sh
 
 #### 4.1 Convert trajectories to verifier format
 
-For verifier inference format, follow the HF training set schema (`SWE-Lego/swe_lego_real_data_trajectories_verifier`) to build data as `trajectory + patch + judge prompt`.
+For verifier inference format, follow the HF training set schema (`SWE-Lego/SWE_Lego_real_data_Verifier`) to build data as `trajectory + patch + judge prompt`.
 You can convert raw trajectories with:
 
 ```bash

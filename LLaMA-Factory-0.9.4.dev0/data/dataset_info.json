@@ -28,7 +28,7 @@
     }
   },
   "swe_lego_real_data_trajectories_verifier": {
-    "hf_hub_url": "SWE-Lego/swe_lego_real_data_trajectories_verifier",
+    "hf_hub_url": "SWE-Lego/SWE_Lego_real_data_Verifier",
     "formatting": "sharegpt",
     "columns": {
       "messages": "messages"
