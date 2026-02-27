@@ -30,11 +30,13 @@ We present **SWE-Lego**, a supervised fine-tuning (SFT) recipe designed to achie
 - a **refined SFT** procedure with error masking and a difficulty-based curriculum, which demonstrably improves action quality and overall performance;
 - a **well-trained verifier** for improving test-time scaling (TTS).
 
-Our fine-tuned models are trained exclusively with SFT from [Qwen3-8B](https://huggingface.co/Qwen/Qwen3-8B) and [Qwen3-32B](https://huggingface.co/Qwen/Qwen3-32B). Their effectiveness is demonstrated on SWE-Bench-Verified:
+Our fine-tuned policy models are trained exclusively with SFT from [Qwen3-8B](https://huggingface.co/Qwen/Qwen3-8B) and [Qwen3-32B](https://huggingface.co/Qwen/Qwen3-32B). Their effectiveness is demonstrated on SWE-Bench-Verified:
 - **[SWE-Lego-Qwen3-8B](https://huggingface.co/SWE-Lego/SWE-Lego-Qwen3-8B)**: **42.2%** Pass@1, **49.6%** TTS@16
 - **[SWE-Lego-Qwen3-32B](https://huggingface.co/SWE-Lego/SWE-Lego-Qwen3-32B)**: **52.6%** Pass@1, **58.8%** TTS@16
 
-We’ve open-sourced everything—our dataset, code, and training scripts, for everyone to progress on scaling and improving software engineering agents.
+For verifier-based TTS, we also release **[SWE-Lego-Verifier-8B](https://huggingface.co/SWE-Lego/SWE-Lego-Verifier-8B)** and **[SWE-Lego-Verifier-30B-A3B](https://huggingface.co/SWE-Lego/SWE-Lego-Verifier-30B-A3B)**, together with the verifier dataset **[SWE-Lego/SWE_Lego_real_data_Verifier](https://huggingface.co/datasets/SWE-Lego/SWE_Lego_real_data_Verifier)**.
+
+We’ve open-sourced everything—our datasets, models, code, and training scripts—for everyone to progress on scaling and improving software engineering agents.
 
 
 ## Reproduction Guide 🎯
@@ -143,11 +145,31 @@ bash scripts/swe_lego_qwen3_8b/sft.sh
 bash scripts/swe_lego_qwen3_32b/sft.sh
 ```
 
-#### 3.3 Verifier SFT configs
-The verifier training configs are:
+### 🧪 4. Verifier Training, Inference
+
+In our TTS setting, we find generative verifier selection works better than regressive alternatives, and our verifier-enabled setup reaches **49.6%** TTS@16 (SWE-Lego-Qwen3-8B) and **58.8%** TTS@16 (SWE-Lego-Qwen3-32B).
+
+#### 4.1 Verifier data and conversion
+
+Verifier training data is released at `SWE-Lego/SWE_Lego_real_data_Verifier`.
+Each verifier sample is built from three parts: `trajectory + patch + judgement`.
+At inference time, only `trajectory + patch` are used as input; `judgement` is predicted by the verifier.
+
+Use this script to convert raw rollout trajectories into verifier inference format:
+
+```bash
+python LLaMA-Factory-0.9.4.dev0/tts/convert_trajectories_to_verifier.py \
+  --input /path/to/raw_trajectories.jsonl \
+  --output /path/to/verifier_input.jsonl
+```
+
+The converter reads instance-level trajectories (e.g., `run_1`, `run_2`, ... with `funccalloff_messages`, `patch`, and `resolved`) and writes verifier-ready JSONL with `system + user` messages.
+
+#### 4.2 Train verifier models
+
+Verifier SFT configs:
 - `LLaMA-Factory-0.9.4.dev0/examples/train_full/swe_lego_verifier_qwen3_8b.yaml`
 - `LLaMA-Factory-0.9.4.dev0/examples/train_full/swe_lego_verifier_qwen3_30b_a3b.yaml`
-- Dataset name: `swe_lego_real_data_trajectories_verifier` (from `SWE-Lego/SWE_Lego_real_data_Verifier`)
 
 Training launch scripts:
 - `scripts/swe_lego_verifier_qwen3_8b/sft.sh`
@@ -159,18 +181,7 @@ bash scripts/swe_lego_verifier_qwen3_8b/sft.sh
 bash scripts/swe_lego_verifier_qwen3_30b_a3b/sft.sh
 ```
 
-### 🧪 4. Verifier Inference
-
-#### 4.1 Convert trajectories to verifier format
-
-For verifier inference format, follow the HF training set schema (`SWE-Lego/SWE_Lego_real_data_Verifier`) to build data as `trajectory + patch + judge prompt`.
-You can convert raw trajectories with:
-
-```bash
-python LLaMA-Factory-0.9.4.dev0/tts/convert_trajectories_to_verifier.py \
-  --input /path/to/raw_trajectories.jsonl \
-  --output /path/to/verifier_input.jsonl
-```
+#### 4.3 Run verifier inference
 
 Inference launch scripts:
 - `scripts/swe_lego_verifier_qwen3_8b/infer.sh`
@@ -181,6 +192,8 @@ Example:
 bash scripts/swe_lego_verifier_qwen3_8b/infer.sh /path/to/verifier_input.jsonl
 bash scripts/swe_lego_verifier_qwen3_30b_a3b/infer.sh /path/to/verifier_input.jsonl
 ```
+
+The inference output contains per-instance run scores (including `predicted_score`), which can be used for ranking rollouts in parallel TTS.
 
 ## Acknowledgements
 This project acknowledges the valuable contributions of the following open-source repositories:
