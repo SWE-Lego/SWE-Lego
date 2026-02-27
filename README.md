@@ -35,6 +35,9 @@ Our fine-tuned models are trained exclusively with SFT from [Qwen3-8B](https://h
 - **[SWE-Lego-Qwen3-32B](https://huggingface.co/SWE-Lego/SWE-Lego-Qwen3-32B)**: **52.6%** Pass@1, **58.8%** TTS@16
 
 We’ve open-sourced everything—our dataset, code, and training scripts, for everyone to progress on scaling and improving software engineering agents.
+We also release two verifier models for TTS reranking:
+- **[SWE-Lego-Verifier-8B](https://huggingface.co/SWE-Lego/SWE-Lego-Verifier-8B)**
+- **[SWE-Lego-Verifier-30B-A3B](https://huggingface.co/SWE-Lego/SWE-Lego-Verifier-30B-A3B)**
 
 
 ## Reproduction Guide 🎯
@@ -142,6 +145,81 @@ for config in datasets:
 bash scripts/swe_lego_qwen3_8b/sft.sh
 bash scripts/swe_lego_qwen3_32b/sft.sh
 ```
+
+### 🧪 4. Training and Inference of SWE-Lego Verifier (8B / 30B-A3B)
+
+#### 4.1 Verifier training configs and key hyperparameters
+
+Configs:
+- `LLaMA-Factory-0.9.4.dev0/examples/train_full/swe_lego_verifier_qwen3_8b_18k.yaml`
+- `LLaMA-Factory-0.9.4.dev0/examples/train_full/swe_lego_verifier_qwen3_30b_a3b_18k.yaml`
+- `LLaMA-Factory-0.9.4.dev0/examples/train_full/swe_lego_verifier_qwen3_30b_a3b_18k_2nodes.yaml` (2-node)
+
+Shared hyperparameters:
+- Dataset: `verifier_part0,...,verifier_part8`
+- Template: `qwen3_nothink`
+- `cutoff_len=131072`, `rope_scaling=yarn`
+- `per_device_train_batch_size=1`
+- `learning_rate=2e-5`, `weight_decay=0.01`, `max_grad_norm=1.0`
+- `num_train_epochs=5`, `lr_scheduler_type=cosine`, `warmup_ratio=0.1`
+- `bf16=true`, `deepspeed=examples/deepspeed/ds_z3_config.json`
+- `flash_attn=fa2`, `enable_liger_kernel=true`, `use_unsloth_gc=true`
+
+Model-specific settings:
+- **8B** (`Qwen/Qwen3-8B`): `gradient_accumulation_steps=8`
+- **30B-A3B** (`Qwen/Qwen3-Coder-30B-A3B-Instruct`):
+  - single node: `gradient_accumulation_steps=8`
+  - 2 nodes: `gradient_accumulation_steps=4`
+
+Reference checkpoints used in our experiments:
+- `saves/qwen3_8b_verifier_18k/checkpoint-552` (`global_step=552`, `epoch=2.0`)
+- `saves/qwen3_30b_verifier_sft_18k/checkpoint-828` (`global_step=828`, `epoch=3.0`)
+
+#### 4.2 Prepare verifier training data
+
+Place verifier shards under:
+- `LLaMA-Factory-0.9.4.dev0/data/verifier/verifier_part0.json`
+- ...
+- `LLaMA-Factory-0.9.4.dev0/data/verifier/verifier_part8.json`
+
+`dataset_info.json` already includes `verifier_part0~8` mappings.
+
+#### 4.3 Launch verifier training
+
+Single-node training:
+```bash
+bash scripts/swe_lego_verifier_qwen3_8b/sft.sh
+bash scripts/swe_lego_verifier_qwen3_30b_a3b/sft.sh
+```
+
+2-node training for 30B-A3B:
+```bash
+# Node 0
+MASTER_ADDR=<node0-hostname-or-ip> MASTER_PORT=20812 bash scripts/swe_lego_verifier_qwen3_30b_a3b/sft_2nodes_node0.sh
+
+# Node 1
+MASTER_ADDR=<node0-hostname-or-ip> MASTER_PORT=20812 bash scripts/swe_lego_verifier_qwen3_30b_a3b/sft_2nodes_node1.sh
+```
+
+#### 4.4 Run verifier inference
+
+Input format should be json/jsonl with at least:
+- `instance_id`
+- `messages` (chat trajectory)
+- optional: `run` / `run_id`, `score` / `ground_truth`
+
+Run:
+```bash
+bash scripts/swe_lego_verifier_qwen3_8b/infer.sh /path/to/verifier_input.jsonl
+bash scripts/swe_lego_verifier_qwen3_30b_a3b/infer.sh /path/to/verifier_input.jsonl
+```
+
+Optional env vars:
+- `MODEL_PATH` (default: HF model id)
+- `NUM_GPUS`, `BATCH_SIZE`, `MAX_LENGTH`, `FLASH_ATTN`, `ENABLE_LIGER_KERNEL`
+
+Core inference implementation:
+- `LLaMA-Factory-0.9.4.dev0/tts/inference_verifier_tts.py`
 
 ## Acknowledgements
 This project acknowledges the valuable contributions of the following open-source repositories:
